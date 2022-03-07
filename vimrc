@@ -7,6 +7,14 @@ set hlsearch
 set ruler
 filetype plugin on 
 set history=1000
+set nofileignorecase
+
+set formatoptions+=j " Delete comment character when joining commented lines
+set backspace=indent,eol,start " backspace over everything in insert mode
+set mmp=5000 " gets confused with some key strings thinking they are a regex
+
+" will search for the visually selected text
+vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 
 autocmd FileType ruby     setlocal shiftwidth=2 tabstop=2 cindent expandtab smarttab
 autocmd FileType eruby    setlocal shiftwidth=2 tabstop=2 cindent expandtab smarttab
